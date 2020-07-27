@@ -19,7 +19,8 @@ class BurgerBuilder extends Component {
             cheese: 0,
             meat: 0
         },
-        totalPrice: 4
+        totalPrice: 4,
+        currency: '€'
     };
 
     addIngredientHandler = (type) => {
@@ -68,6 +69,7 @@ class BurgerBuilder extends Component {
                     ingredientRemoved={this.removeIngredientHandler}
                     disabled={disabledInfo}
                     price={this.state.totalPrice}
+                    currency={this.state.currency}
                 />
             </Aux>
         );
