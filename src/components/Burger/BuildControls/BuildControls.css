@@ -17,6 +17,7 @@
     cursor: pointer;
     font-family: inherit;
     font-size: 1.2em;
+    margin-bottom: 15px;  /* added by me */
     outline: none;
     padding: 15px 30px;
 }
