@@ -11,5 +11,4 @@ const Layout = (props) => (
     </Aux>
 );
 
-
 export default Layout;
