@@ -9,8 +9,8 @@ import classes from './SideDrawer.css';
 const sideDrawer = (props) => {
     let attachedClasses = [classes.SideDrawer, classes.Close];
 
-    if (props.Open) {
-        attachedClasses = [classes.sideDrawer, classes.Open]
+    if (props.open) {
+        attachedClasses = [classes.SideDrawer, classes.Open];
     }
 
     return (
@@ -23,7 +23,7 @@ const sideDrawer = (props) => {
                 <div className={classes.Logo}>
                     <Logo />
                 </div>
-                <nav className={classes.DesktopOnly}>
+                <nav>
                     <NavigationItems />
                 </nav>
             </div>
