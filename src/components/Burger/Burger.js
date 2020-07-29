@@ -1,11 +1,10 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 import classes from './Burger.css';
 
 const burger = (props) => {
-    console.log('burger', props);
+    // console.log('burger', props);
     let transformedIngedients = Object.keys(props.ingredients)
         .map(ingredientKey => {
             return [...Array(props.ingredients[ingredientKey])].map((_, i) => { return <BurgerIngredient key={ingredientKey + i} type={ingredientKey} /> });  // way to transform an object of key-value pairs to an array of burger ingredients
@@ -29,5 +28,4 @@ const burger = (props) => {
         </div>
     );
 }
-
-export default withRouter(burger);
+export default burger;
