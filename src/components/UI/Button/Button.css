@@ -3,7 +3,6 @@
     border: none;
     color: white;
     cursor: pointer;
-    font-weight: bold;
     font: inherit;
     margin: 10px;
     outline: none;
@@ -16,9 +15,11 @@
 }
 
 .Success {
+    font-weight: bold;
     color: #5C9210;
 }
 
 .Danger {
+    font-weight: bold;
     color: #944317;
 }
