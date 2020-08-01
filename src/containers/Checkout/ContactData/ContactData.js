@@ -66,20 +66,16 @@ class ContactData extends Component {
 
     orderHandler = (event) => {
         event.preventDefault();
-        this.setState({ loading: true })
+        this.setState({ loading: true });
+        const formData = {};
+        for (let formElementIdentifier in this.state.orderForm) {
+            formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier]
+        }
         const order = {
             ingredients: this.props.ingredients,
             price: this.props.price,
-            // customer: {
-            //     name: 'Jorge Vicens',
-            //     address: {
-            //         street: 'Blop street',
-            //         cp: '03202',
-            //         country: 'Spain'
-            //     },
-            //     email: 'uno@dos'
-            // },
-            deliveryMethod: 'fastest'
+            deliveryMethod: 'fastest',
+            orderData: formData
         }
 
         axios.post('/orders.json', order)
@@ -115,7 +111,7 @@ class ContactData extends Component {
         }
 
         let form = (
-            <form>
+            <form onSubmit={this.orderHandler}>
                 {/* <Input elementType="..." elementConfig="..." value="..."/> */}
                 {formElementsArray.map(formElement => (
                     // console.log(formElement)
@@ -129,7 +125,7 @@ class ContactData extends Component {
                 ))}
                 <Button
                     btnType="Success"
-                    clicked={this.orderHandler}
+
                 >ORDER</Button>
             </form>
         );
