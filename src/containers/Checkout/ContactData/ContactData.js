@@ -85,7 +85,7 @@ class ContactData extends Component {
                         { value: 'cheapest', displayValue: 'Cheapest' },
                     ]
                 },
-                value: '',
+                value: 'fastest',
                 validation: {}, // a way to circunvent a bug. Now all input fields have the same structure. Those who doesn't have validation just have an empty field
                 valid: true
             }
