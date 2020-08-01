@@ -9,11 +9,57 @@ import classes from './ContactData.css'
 
 class ContactData extends Component {
     state = {
-        name: '',
-        email: '',
-        address: {
-            street: '',
-            postalCode: ''
+        orderForm: {
+            name: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Your name'
+                },
+                value: ''
+            },
+            street: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'street'
+                },
+                value: ''
+            },
+            cp: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'postal code'
+                },
+                value: ''
+            },
+            country: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'country'
+                },
+                value: ''
+            },
+            email: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'email',
+                    placeholder: 'Your email'
+                },
+                value: ''
+            },
+            deliveryMethod: {
+                elementType: 'select',
+                elementConfig: {
+                    options: [
+                        { value: 'fastest', displayValue: 'Fastest' },
+                        { value: 'cheapest', displayValue: 'Cheapest' },
+                    ]
+                },
+                value: ''
+            }
         },
         loading: false
     }
@@ -24,15 +70,15 @@ class ContactData extends Component {
         const order = {
             ingredients: this.props.ingredients,
             price: this.props.price,
-            customer: {
-                name: 'Jorge Vicens',
-                address: {
-                    street: 'Blop street',
-                    cp: '03202',
-                    country: 'Spain'
-                },
-                email: 'uno@dos'
-            },
+            // customer: {
+            //     name: 'Jorge Vicens',
+            //     address: {
+            //         street: 'Blop street',
+            //         cp: '03202',
+            //         country: 'Spain'
+            //     },
+            //     email: 'uno@dos'
+            // },
             deliveryMethod: 'fastest'
         }
 
@@ -49,7 +95,7 @@ class ContactData extends Component {
     render() {
         let form = (
             <form>
-                <Input inputtype="input" type="text" name="name" placeholder="Your name" />
+                <Input elementType="..." elementConfig="..." value="..."/>
                 <Input inputtype="input" type="email" name="email" placeholder="Your mail" />
                 <Input inputtype="input" type="text" name="street" placeholder="Street" />
                 <Input inputtype="input" type="text" name="postal" placeholder="Postal code" />
