@@ -109,7 +109,7 @@ class ContactData extends Component {
                     <Input
                         key={formElement.id}
                         elementType={formElement.config.elementType}
-                        config={formElement.config.elementConfig}
+                        elementConfig={formElement.config.elementConfig}
                         value={formElement.config.value}
                     />
                 ))}
