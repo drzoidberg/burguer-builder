@@ -85,9 +85,12 @@ class ContactData extends Component {
                         { value: 'cheapest', displayValue: 'Cheapest' },
                     ]
                 },
-                value: ''
+                value: '',
+                validation: {}, // a way to circunvent a bug. Now all input fields have the same structure. Those who doesn't have validation just have an empty field
+                valid: true
             }
         },
+        formIsValid: false,
         loading: false
     }
 
@@ -143,10 +146,17 @@ class ContactData extends Component {
 
         updatedFormElement.value = event.target.value;
         updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
-        updatedFormElement.touched = true
+        updatedFormElement.touched = true;
         updatedOrderForm[inputIdentifier] = updatedFormElement;
-        console.log(updatedFormElement);
-        this.setState({orderForm: updatedOrderForm});
+        // console.log(updatedFormElement);
+
+        let formIsValid = true;
+        for (let inputIdentifier in updatedOrderForm) {
+            formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;
+        }
+        // console.log(formIsValid);
+
+        this.setState({orderForm: updatedOrderForm, formIsValid: formIsValid});
     }
 
     render() {
@@ -176,7 +186,7 @@ class ContactData extends Component {
                 ))}
                 <Button
                     btnType="Success"
-
+                    disabled={!this.state.formIsValid}
                 >ORDER</Button>
             </form>
         );
