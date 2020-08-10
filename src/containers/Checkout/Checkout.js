@@ -8,9 +8,6 @@ import * as actions from '../../store/actions/index';
 
 class Checkout extends Component {
 
-    componentDidMount() {
-        this.props.onInitPurchase();
-    }
 
     checkoutCancelledHandler = () => {
         this.props.history.goBack();
@@ -23,7 +20,7 @@ class Checkout extends Component {
     render() {
         let summary = <Redirect to="/" />
         if (this.props.ings) {
-            const purchasedRedirect = this.props.purchsed ? <Redirect to="/" /> : null
+            const purchasedRedirect = this.props.purchased ? <Redirect to="/" /> : null
             summary = (
                 <div>
                     {purchasedRedirect}
@@ -41,7 +38,7 @@ class Checkout extends Component {
             )
         }
         return (
-            {summary}
+            summary
         );
     }
 }
