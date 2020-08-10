@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import axios from '../../axios-order';
 import { connect } from 'react-redux';
+import axios from '../../axios-order';
 
 import Aux from '../../hoc/Aux/Aux';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
@@ -17,8 +17,6 @@ class BurgerBuilder extends Component {
     state = {
         currency: '€',
         purchasing: false,
-        loading: false,
-        error: false
     };
 
     updatePurchaseState(ingredients) {
@@ -47,13 +45,7 @@ class BurgerBuilder extends Component {
 
     componentDidMount() {
         console.log('[BurgerBuilder][componentDidMount]', this.props);
-        axios.get('https://react-burger-builder-5db37.firebaseio.com/ingredients.json')
-            .then(response => {
-                this.setState({ ingredients: response.data });
-            })
-            .catch(error => {
-                this.setState({ error: true })
-            })
+
     }
 
     render() {
@@ -91,10 +83,6 @@ class BurgerBuilder extends Component {
                 purchaseCancelled={this.purchaseCancelHandler}
                 purchaseContinued={this.purchaseContinueHandler}
             />
-        }
-
-        if (this.state.loading) {
-            orderSummary = <Spinner />;
         }
 
         return (
