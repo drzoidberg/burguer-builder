@@ -8,6 +8,7 @@ import Input from '../../../components/UI/Input/Input';
 import classes from './ContactData.css'
 import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
 
+import * as actions from '../../../store/actions/index';
 class ContactData extends Component {
     state = {
         orderForm: {
@@ -108,6 +109,8 @@ class ContactData extends Component {
             orderData: formData
         }
 
+        this.props.onBurgerBuilder(order);
+
     }
 
     checkValidity(value, rules) {
@@ -199,6 +202,10 @@ const mapStateToProps = state => {
         ings: this.ingredients,
         price: this.totalPrice
     }
+}
+
+const mapDispatchToProps = dispatch => {
+    (orderData) => dispatch(actions.purchaseBurgerStart(orderData))
 }
 
 export default connect(mapStateToProps)(withErrorHandler(ContactData, axios));
