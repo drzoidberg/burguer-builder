@@ -19,6 +19,11 @@ class BurgerBuilder extends Component {
         purchasing: false,
     };
 
+    componentDidMount() {
+        console.log('[BurgerBuilder][componentDidMount]', this.props);
+        this.props.onInitIngredients();
+    }
+
     updatePurchaseState(ingredients) {
         const sum = Object.keys(ingredients)
             .map(ingredientKey => {
@@ -43,11 +48,6 @@ class BurgerBuilder extends Component {
         this.setState({ purchasing: false })
     }
 
-
-    componentDidMount() {
-        console.log('[BurgerBuilder][componentDidMount]', this.props);
-        this.props.onInitIngredients();
-    }
 
     render() {
         const disabledInfo = {
