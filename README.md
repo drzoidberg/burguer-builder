@@ -15,7 +15,7 @@ burguer-builder is the second of the project series from the Udemy course [React
 - The concept of routing
 - Some basic form validation
 - Authentication using Firebase
-- Animations in React Apps
+- Animations in React Apps (using pure css animations, transitions, but using ReactTransitionGroup, Transtion components, CSSTransition components and some other Animation packages)
 - An overview on the bundler Webpack, Next.js & React Saga
 
 
