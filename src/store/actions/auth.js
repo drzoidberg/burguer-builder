@@ -31,12 +31,17 @@ export const logout = () => {
     }
 }
 
+export const logoutSucceed = () => {
+    return {
+        type: actionTypes.AUTH_LOGOUT
+    }
+}
+
 export const checkAuthTimeout = (expirationTime) => {
-    return dispatch => {
-        setTimeout(() => {
-            dispatch(logout())
-        }, expirationTime * 1000) /* due to firebase setting the expiration time in seconds, not in milliseconds */
-    };
+    return {
+        type: actionTypes.AUTH_CHECK_TIMEOUT,
+        expirationTime: 10
+    }
 };
 
 export const auth = (email, password, isSignup) => {
