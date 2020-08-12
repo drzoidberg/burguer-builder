@@ -31,3 +31,6 @@ npm i
 // for running the project
 npm start
 ```
+
+## 🌍 Hosted project
+[MyBurger Project](https://react-burger-builder-5db37.web.app/)
