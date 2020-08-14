@@ -1,15 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Aux from '../../../hoc/Aux/Aux';
 import Backdrop from '../Backdrop/Backdrop';
 
 import classes from './Modal.css'
 
 const Modal = (props) => {
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     return nextProps.show !== props.show || nextProps.children !== props.children;
-    // };
-
-
     return (
         <Aux>
             <Backdrop show={props.show} clicked={props.modalClosed} />
